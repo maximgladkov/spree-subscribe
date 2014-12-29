@@ -42,7 +42,7 @@
           <%= sub.line_item.variant.options_text %>
         </td>
         <td class="subscription-user"><%= sub.user.try(:id) %></td>
-        <td class="subscription-price"><%= money sub.line_item.price %></td>
+        <td class="subscription-price"><%= Spree::Money.new(sub.line_item.price).to_s %></td>
         <td class="subscription-interval"><%= sub.time_title %></td>
         <td class="subscription-reorder-date">
           <% if sub.active? %>
